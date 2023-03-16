@@ -24,7 +24,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
         <Link to={`user-profile/${user?._id}`} className="hidden md:block">
           <img
             src={user.image}
-            alt="profile-image"
+            alt="profile"
             className="w-14 h-12 rounded-lg"
           />
         </Link>
