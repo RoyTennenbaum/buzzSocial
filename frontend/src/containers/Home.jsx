@@ -5,19 +5,17 @@ import { Link, Route, Routes } from "react-router-dom";
 
 import { Sidebar, UserProfile } from "../components";
 import Pins from "./Pins";
-import { userQuery } from "../utils/data";
+import { userQuery } from "../utils/GROQ-data";
 import { client } from "../client";
 import logo from "../assets/logo_compressed.svg";
+import { fetchUser } from "../utils/fetchUser";
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [user, setUser] = useState(null);
   const scrollRef = useRef(null);
 
-  const userInfo =
-    localStorage.getItem("user") !== "undefined"
-      ? JSON.parse(localStorage.getItem("user"))
-      : localStorage.clear();
+  const userInfo = fetchUser();
 
   useEffect(() => {
     const query = userQuery(userInfo?.sub);
@@ -28,8 +26,10 @@ const Home = () => {
   }, [userInfo?.sub]);
 
   useEffect(() => {
-    scrollRef.current.scrollTo(0, 0);
+    scrollRef.current.scrollTo(0, 0); //sets the screen to always view the top part of it on rerender or refresh.
   }, []);
+
+  console.log(userInfo);
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out">
       <div className="hidden md:flex h-screen flex-initial">
