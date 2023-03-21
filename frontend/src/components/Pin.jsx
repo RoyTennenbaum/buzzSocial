@@ -10,13 +10,42 @@ import { fetchUser } from "../utils/fetchUser";
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const [postIsHovered, setPostIsHovered] = useState(false);
-  const [isSavingPost, setIsSavingPost] = useState(false);
   const navigate = useNavigate();
+
   const user = fetchUser();
 
-  const alreadySaved = !!save?.filter((post) => post.postedBy._id === user.sub); //the two !! before the statement is a short way to turn the string into a boolean (with a correct value of course)
+  let alreadySaved = save?.filter((item) => item.postedBy._id === user.sub);
+  //save = array of people who saved the post; check if the logged user already saved = is he within the array.
+  alreadySaved = alreadySaved?.length > 0;
 
-  console.log(alreadySaved);
+  const savePin = (id) => {
+    if (!alreadySaved) {
+      client
+        .patch(id)
+        .setIfMissing({ save: [] })
+        .insert("after", "save[-1]", [
+          {
+            _key: uuidv4(),
+            userId: user.sub,
+            postedBy: {
+              _type: "postedBy",
+              _ref: user.sub,
+            },
+          },
+        ])
+        .commit()
+        .then(() => {
+          window.location.reload();
+        });
+    }
+  };
+
+  // const deletePin = (id) => {
+  //   client
+  //   .delete(id)
+
+  // }
+
   return (
     <div className="m-2">
       <div
@@ -43,15 +72,67 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   <MdDownloadForOffline />
                 </a>
               </div>
-              {alreadySaved?.length !== 0 ? (
-                <button>Saved</button>
+              {alreadySaved ? (
+                <button
+                  type="button"
+                  className="bg-yellow-500 opacity-75 hover:opacity-100 hover:shadow-md text-black font-bold px-5 py-1 text-base rounded-3xl outline-none"
+                >
+                  {save?.length} Saved
+                </button>
               ) : (
-                <button>Save</button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    savePin(_id);
+                  }}
+                  type="button"
+                  className="bg-yellow-500 opacity-75 hover:opacity-100 hover:shadow-md text-black font-bold px-5 py-1 text-base rounded-3xl outline-none"
+                >
+                  Save
+                </button>
+              )}
+            </div>
+            <div className="flex justify-between items-center gap-2 w-full">
+              {destination && (
+                <a
+                  href={destination}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-white flex items-center gap-2 text-black font-bold p-2 pl-4 pr-4 rounded-full opacity-75 hover:opacity-100 hover:shadow-md"
+                >
+                  <BsFillArrowUpRightCircleFill />
+                  {destination.length > 20
+                    ? destination.slice(8, 20)
+                    : destination(8)}
+                </a>
+              )}
+              {postedBy?._id === user.sub && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    // deletePin(_id);
+                  }}
+                  className="bg-white p-2 opacity-75 hover:opacity-100 hover:shadow-md text-black font-bold text-dark text-base rounded-3xl outline-none"
+                >
+                  <AiTwotoneDelete />
+                </button>
               )}
             </div>
           </div>
         )}
       </div>
+      <Link
+        to={`user-profile/${postedBy?._id}`}
+        className="flex gap-2 mt-2 items-center"
+      >
+        <img
+          className="w-8 h-8 rounded-full object-cover"
+          src={postedBy?.image}
+          alt="profile"
+        />
+        <p className="font-semibold capitalize">{postedBy?.username}</p>
+      </Link>
     </div>
   );
 };
