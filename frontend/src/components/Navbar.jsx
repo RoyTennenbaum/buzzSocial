@@ -26,6 +26,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
             src={user.image}
             alt="profile"
             className="w-14 h-12 rounded-lg"
+            referrerPolicy="no-referrer"
           />
         </Link>
         <Link

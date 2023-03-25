@@ -130,6 +130,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
           className="w-8 h-8 rounded-full object-cover"
           src={postedBy?.image}
           alt="profile"
+          referrerPolicy="no-referrer"
         />
         <p className="font-semibold capitalize">{postedBy?.username}</p>
       </Link>

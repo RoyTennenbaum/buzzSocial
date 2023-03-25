@@ -72,7 +72,8 @@ const Sidebar = ({ user, closeToggle }) => {
           <img
             src={user.image}
             className="w-10 h-10 rounded-full"
-            alt="user-profile"
+            alt="profile"
+            referrerPolicy="no-referrer"
           />
           <p>{user.username}</p>
         </Link>
