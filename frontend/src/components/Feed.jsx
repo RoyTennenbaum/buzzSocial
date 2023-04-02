@@ -32,6 +32,9 @@ const Feed = () => {
     return <Spinner message="Buzzing off to get your latest posts..." />;
   }
 
+  if (!pins?.length) {
+    return <h2>No Pins Exist! You can be the first to create one...</h2>;
+  }
   return <div>{pins && <MasonryLayout pins={pins} />}</div>;
 };
 
