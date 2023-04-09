@@ -1,3 +1,4 @@
+//pin schema
 export default {
   name: 'pin',
   title: 'Pin',
@@ -39,7 +40,8 @@ export default {
     {
       name: 'postedBy',
       title: 'PostedBy',
-      type: 'postedBy',
+      type: 'reference',
+      to: [{type: 'user'}],
     },
     {
       name: 'save',

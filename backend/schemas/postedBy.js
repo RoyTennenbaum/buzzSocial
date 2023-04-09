@@ -1,3 +1,4 @@
+//postedBy schema
 export default {
   name: 'postedBy',
   title: 'PostedBy',

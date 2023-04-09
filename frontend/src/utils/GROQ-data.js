@@ -1,10 +1,12 @@
 export const userQuery = (userId) => {
+  //get a single user
   const query = `*[_type == "user" && _id == '${userId}']`;
 
   return query;
 };
 
 export const searchQuery = (searchTerm) => {
+  //search for pins by title, category or about section.
   const query = `*[_type == "pin" && title match '${searchTerm}*' || category match '${searchTerm}*' || about match '${searchTerm}*']{
     image {
       asset -> {
@@ -31,7 +33,8 @@ export const searchQuery = (searchTerm) => {
   return query;
 };
 
-export const feedQuery = `*[_type == "pin"] | order(_createdAt desc) {
+//add pins to the feed by descending order
+export const feedQuery = `*[_type == "pin"] | order(_createdAt desc) { 
   image {
     asset -> {
       url
@@ -55,6 +58,7 @@ export const feedQuery = `*[_type == "pin"] | order(_createdAt desc) {
 }`;
 
 export const pinDetailQuery = (pinId) => {
+  //provide details for the pin detail page
   const query = `*[_type == "pin" && _id == '${pinId}']{
     image{
       asset->{
@@ -92,6 +96,7 @@ export const pinDetailQuery = (pinId) => {
 };
 
 export const pinDetailMorePinQuery = (pin) => {
+  //add all pins of the same category excluding the same pin that is currently active, and show them all at the bottom of the page.
   const query = `*[_type == "pin" && category == '${pin.category}' && _id != '${pin._id}' ]{
     image{
       asset->{
@@ -118,6 +123,7 @@ export const pinDetailMorePinQuery = (pin) => {
 };
 
 export const userCreatedPinsQuery = (userId) => {
+  //show all pins that were created by the current user on his profile page
   const query = `*[ _type == 'pin' && userId == '${userId}'] | order(_createdAt desc){
     image{
       asset->{
@@ -143,6 +149,7 @@ export const userCreatedPinsQuery = (userId) => {
 };
 
 export const userSavedPinsQuery = (userId) => {
+  //show all pins that were saved by the current user on his profile page
   const query = `*[_type == 'pin' && '${userId}' in save[].userId ] | order(_createdAt desc) {
     image{
       asset->{

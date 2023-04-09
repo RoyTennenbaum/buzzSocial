@@ -1,3 +1,4 @@
+//comment schema
 export default {
   name: 'comment',
   title: 'Comment',
@@ -6,7 +7,8 @@ export default {
     {
       name: 'postedBy',
       title: 'PostedBy',
-      type: 'postedBy',
+      type: 'reference',
+      to: [{type: 'user'}],
     },
     {
       name: 'comment',

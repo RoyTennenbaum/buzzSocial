@@ -1,3 +1,4 @@
+//user schema
 export default {
   name: 'user',
   title: 'User',
@@ -11,7 +12,7 @@ export default {
     {
       name: 'image',
       title: 'Image',
-      type: 'string',
+      type: 'url',
     },
   ],
 }
