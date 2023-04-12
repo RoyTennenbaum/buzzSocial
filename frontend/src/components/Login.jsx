@@ -28,7 +28,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex justify-start items-center flex-col h-screen">
+      <div className="flex flex-col items-center justify-start h-screen">
         <div className="relative w-full h-full">
           <video
             src={homeIntro}
@@ -37,15 +37,15 @@ const Login = () => {
             controls={false}
             muted
             autoPlay
-            className="w-full h-full object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
       </div>
-      <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-60">
+      <div className="absolute top-0 left-0 right-0 flex flex-col items-center justify-center bottom-60">
         <img
           src={logo}
           alt="logo"
-          className="h-48 sm:h-56 md:h-64 lg:h-80 xl:h-96 m-8"
+          className="h-48 m-8 sm:h-56 md:h-64 lg:h-80 xl:h-96"
         />
         <GoogleLogin
           onSuccess={successResponseGoogle}

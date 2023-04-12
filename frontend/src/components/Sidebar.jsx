@@ -18,11 +18,11 @@ const Sidebar = ({ user, closeToggle }) => {
   };
 
   return (
-    <div className="flex flex-col justify-between bg-white h-full overflow-y-scrikk min-w-210 hide-scrollbar bg-gray-300">
+    <div className="flex flex-col justify-between h-full bg-gray-300 overflow-y-scrikk min-w-210 hide-scrollbar">
       <div className="flex flex-col">
         <Link
           to="/"
-          className="flex px-5 gap-2 my-6 pt-1 w-190 items-center"
+          className="flex items-center gap-2 px-5 pt-1 my-6 w-190"
           onClick={handleCloseSidebar}
         >
           <img src={sidebarLogo} alt="sidebarLogo" className="w-full" />
@@ -38,7 +38,7 @@ const Sidebar = ({ user, closeToggle }) => {
             <RiHomeFill />
             Home
           </NavLink>
-          <h3 className="mt-2 px-5 text-base 2xl:text-xl">
+          <h3 className="px-5 mt-2 text-base 2xl:text-xl">
             Discover Categories
           </h3>
           {categories.slice(0, categories.length - 1).map((category) => (
@@ -63,7 +63,7 @@ const Sidebar = ({ user, closeToggle }) => {
       {user && (
         <Link
           to={`user-profile/${user._id}`}
-          className="flex my-5 mb-3 gap-2 items-center bg-white rounded-lg shadow-lg mx-3 p-1"
+          className="flex items-center gap-2 p-1 mx-3 my-5 mb-3 bg-white rounded-lg shadow-lg"
           onClick={handleCloseSidebar}
         >
           <img

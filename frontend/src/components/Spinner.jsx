@@ -2,9 +2,9 @@ import { Circles } from "react-loader-spinner";
 
 const Spinner = ({ message }) => {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-full">
+    <div className="flex flex-col items-center justify-center w-full h-full">
       <Circles color="#EAE000" height={50} width={200} className="m-5" />
-      <p className="text-lg text-center px-2">{message}</p>
+      <p className="px-2 text-lg text-center">{message}</p>
     </div>
   );
 };

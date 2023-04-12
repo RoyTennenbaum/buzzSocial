@@ -61,29 +61,29 @@ const UserProfile = () => {
     return <Spinner message="Loading profile..." />;
   }
   return (
-    <div className="relative pb-2 h-full justify-center items-center">
+    <div className="relative items-center justify-center h-full pb-2">
       <div className="flex flex-col pb-5">
         <div className="relative flex flex-col mb-7">
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col items-center justify-center">
             <img
               src={randomImage}
-              className="w-full h-370 2xl:h-510 shadow-lg object-cover"
+              className="object-cover w-full shadow-lg h-370 2xl:h-510"
               alt="profile-banner"
             />
             <img
-              className="rounded-full w-20 h-20 -mt-10 shadow-xl object-cover"
+              className="object-cover w-20 h-20 -mt-10 rounded-full shadow-xl"
               src={user.image}
               alt="profile-user"
             />
-            <h1 className="font-bold text-3xl text-center mt-3">
+            <h1 className="mt-3 text-3xl font-bold text-center">
               {user.username}
             </h1>
-            <div className="absolute top-0 z-1 right-0 p-2">
+            <div className="absolute top-0 right-0 p-2 z-1">
               {userId === user._id && (
                 <button
                   type="button"
                   onClick={logout}
-                  className="bg-white p-2 rounded-full outline"
+                  className="p-2 bg-white rounded-full outline"
                 >
                   <MdOutlineLogout />
                 </button>
@@ -121,7 +121,7 @@ const UserProfile = () => {
               <MasonryLayout pins={pins} />
             </div>
           ) : (
-            <div className="flex justify-center font-bold items-center w-full text-xl mt-2">
+            <div className="flex items-center justify-center w-full mt-2 text-xl font-bold">
               You don't have any posts here!
             </div>
           )}

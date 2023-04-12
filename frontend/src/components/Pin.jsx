@@ -52,22 +52,22 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
         onMouseEnter={() => setPostIsHovered(true)}
         onMouseLeave={() => setPostIsHovered(false)}
         onClick={() => navigate(`/pin-detail/${_id}`)}
-        className="relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
+        className="relative w-auto overflow-hidden transition-all duration-500 ease-in-out rounded-lg cursor-zoom-in hover:shadow-lg"
       >
         <img
           src={urlFor(image).width(250).url()}
           alt="post"
-          className="rounded-lg w-full"
+          className="w-full rounded-lg"
         />
         {postIsHovered && (
-          <div className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50">
+          <div className="absolute top-0 z-50 flex flex-col justify-between w-full h-full p-1 pt-2 pb-2 pr-2">
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
                 <a
                   href={`${image?.asset?.url}?dl=`}
                   download
                   onClick={(e) => e.stopPropagation()}
-                  className="bg-white w-9 h-9 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none"
+                  className="flex items-center justify-center text-xl bg-white rounded-full outline-none opacity-75 w-9 h-9 text-dark hover:opacity-100 hover:shadow-md"
                 >
                   <MdDownloadForOffline />
                 </a>
@@ -75,7 +75,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
               {alreadySaved ? (
                 <button
                   type="button"
-                  className="bg-yellow-500 opacity-75 hover:opacity-100 hover:shadow-md text-black font-bold px-5 py-1 text-base rounded-3xl outline-none"
+                  className="px-5 py-1 text-base font-bold text-black bg-yellow-500 outline-none opacity-75 hover:opacity-100 hover:shadow-md rounded-3xl"
                 >
                   {save?.length} Saved
                 </button>
@@ -86,19 +86,19 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                     savePin(_id);
                   }}
                   type="button"
-                  className="bg-yellow-500 opacity-75 hover:opacity-100 hover:shadow-md text-black font-bold px-5 py-1 text-base rounded-3xl outline-none"
+                  className="px-5 py-1 text-base font-bold text-black bg-yellow-500 outline-none opacity-75 hover:opacity-100 hover:shadow-md rounded-3xl"
                 >
                   Save
                 </button>
               )}
             </div>
-            <div className="flex justify-between items-center gap-2 w-full">
+            <div className="flex items-center justify-between w-full gap-2">
               {destination && (
                 <a
                   href={destination}
                   target="_blank"
                   rel="noreferrer"
-                  className="bg-white flex items-center gap-2 text-black font-bold p-2 pl-4 pr-4 rounded-full opacity-75 hover:opacity-100 hover:shadow-md"
+                  className="flex items-center gap-2 p-2 pl-4 pr-4 font-bold text-black bg-white rounded-full opacity-75 hover:opacity-100 hover:shadow-md"
                 >
                   <BsFillArrowUpRightCircleFill />
                   {destination.length > 20
@@ -113,7 +113,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                     e.stopPropagation();
                     // deletePin(_id);
                   }}
-                  className="bg-white p-2 opacity-75 hover:opacity-100 hover:shadow-md text-black font-bold text-dark text-base rounded-3xl outline-none"
+                  className="p-2 text-base font-bold text-black bg-white outline-none opacity-75 hover:opacity-100 hover:shadow-md text-dark rounded-3xl"
                 >
                   <AiTwotoneDelete />
                 </button>
@@ -124,10 +124,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
       </div>
       <Link
         to={`user-profile/${postedBy?._id}`}
-        className="flex gap-2 mt-2 items-center"
+        className="flex items-center gap-2 mt-2"
       >
         <img
-          className="w-8 h-8 rounded-full object-cover"
+          className="object-cover w-8 h-8 rounded-full"
           src={postedBy?.image}
           alt="profile"
           referrerPolicy="no-referrer"
