@@ -32,7 +32,7 @@ const UserProfile = () => {
     googleLogout();
     sessionStorage.clear();
 
-    navigate("/login");
+    navigate("/login", { replace: true });
   };
 
   useEffect(() => {
@@ -94,7 +94,7 @@ const UserProfile = () => {
             <button
               type="button"
               onClick={(e) => {
-                setText(e.target.textContent);
+                setText("created");
                 setActiveBtn("created");
               }}
               className={`${
@@ -106,7 +106,7 @@ const UserProfile = () => {
             <button
               type="button"
               onClick={(e) => {
-                setText(e.target.textContent);
+                setText("saved");
                 setActiveBtn("saved");
               }}
               className={`${
