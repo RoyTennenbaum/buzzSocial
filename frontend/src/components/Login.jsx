@@ -11,7 +11,7 @@ const Login = () => {
   const successResponseGoogle = (credentialResponse) => {
     const decodedToken = jwtDecode(credentialResponse.credential);
 
-    localStorage.setItem("user", JSON.stringify(decodedToken));
+    sessionStorage.setItem("user", JSON.stringify(decodedToken));
 
     const { name, sub, picture } = decodedToken;
     const doc = {

@@ -30,7 +30,7 @@ const UserProfile = () => {
 
   const logout = () => {
     googleLogout();
-    localStorage.clear();
+    sessionStorage.clear();
 
     navigate("/login");
   };
