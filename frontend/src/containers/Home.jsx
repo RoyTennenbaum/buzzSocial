@@ -25,13 +25,12 @@ const Home = () => {
     client.fetch(query).then((data) => {
       setUser(data[0]);
     });
-  }, [userInfo?.sub]);
+  }, []);
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0); //sets the screen to always view the top part of it on rerender or refresh.
   }, []);
 
-  console.log(userInfo);
   return (
     <div className="flex flex-col h-screen duration-75 ease-out bg-gray-50 md:flex-row transaction-height">
       <div className="flex-initial hidden h-screen md:flex">
