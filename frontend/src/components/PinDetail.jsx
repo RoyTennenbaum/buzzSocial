@@ -136,7 +136,7 @@ const PinDetail = ({ user }) => {
           </div>
           <div className="flex flex-wrap gap-3 mt-6">
             <img
-              className="w-10 h-10 rounded-full cursor-pointer"
+              className="w-10 h-10 rounded-full"
               src={user.image}
               alt="profile"
               referrerPolicy="no-referrer"
