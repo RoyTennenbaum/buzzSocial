@@ -7,6 +7,7 @@ import { client, urlFor } from "../client";
 import MasonryLayout from "./MasonryLayout";
 import { pinDetailQuery, pinDetailMorePinQuery } from "../utils/GROQ-data";
 import Spinner from "./Spinner";
+import { fetchUser } from "../utils/fetchUser";
 
 const PinDetail = ({ user }) => {
   const [pins, setPins] = useState(null);
@@ -14,6 +15,8 @@ const PinDetail = ({ user }) => {
   const [comment, setComment] = useState("");
   const [addingComment, setAddingComment] = useState(false);
   const { pinId } = useParams();
+
+  const userInfo = fetchUser();
 
   const addComment = () => {
     if (comment) {
@@ -132,14 +135,12 @@ const PinDetail = ({ user }) => {
             ))}
           </div>
           <div className="flex flex-wrap gap-3 mt-6">
-            <Link to={`user-profile/${pinDetail.postedBy?._id}`}>
-              <img
-                className="w-10 h-10 rounded-full cursor-pointer"
-                src={pinDetail.postedBy?.image}
-                alt="profile"
-                referrerPolicy="no-referrer"
-              />
-            </Link>
+            <img
+              className="w-10 h-10 rounded-full cursor-pointer"
+              src={user.image}
+              alt="profile"
+              referrerPolicy="no-referrer"
+            />
             <input
               className="flex-1 p-2 border-2 border-gray-100 outline-none rounded-2xl focus:border-gray-300"
               type="text"
