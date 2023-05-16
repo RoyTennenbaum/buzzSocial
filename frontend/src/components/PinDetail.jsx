@@ -16,8 +16,6 @@ const PinDetail = ({ user }) => {
   const [addingComment, setAddingComment] = useState(false);
   const { pinId } = useParams();
 
-  const userInfo = fetchUser();
-
   const addComment = () => {
     if (comment) {
       setAddingComment(true);
