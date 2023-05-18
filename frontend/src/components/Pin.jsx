@@ -15,11 +15,10 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const user = fetchUser();
 
   let alreadySaved = save?.filter((item) => item.postedBy._id === user.sub);
-  //save = array of people who saved the post; check if the logged user already saved = is he within the array.
-  alreadySaved = alreadySaved?.length > 0;
+  //save = array of people who saved the post; check if the logged user already saved -> is he within the array.
 
   const savePin = (id) => {
-    if (!alreadySaved) {
+    if (!alreadySaved || alreadySaved.length === 0) {
       client
         .patch(id)
         .setIfMissing({ save: [] })
@@ -36,7 +35,8 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
         .commit()
         .then(() => {
           window.location.reload();
-        });
+        })
+        .catch((error) => console.log(`error saving pin: ${error}`));
     }
   };
 
@@ -132,7 +132,9 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
           alt="profile"
           referrerPolicy="no-referrer"
         />
-        <p className="font-semibold capitalize">{postedBy?.username}</p>
+        <p className="font-semibold text-yellow-300 capitalize">
+          {postedBy?.username}
+        </p>
       </Link>
     </div>
   );
