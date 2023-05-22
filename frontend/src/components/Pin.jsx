@@ -10,12 +10,14 @@ import { fetchUser } from "../utils/fetchUser";
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
   const [postIsHovered, setPostIsHovered] = useState(false);
+
   const navigate = useNavigate();
 
   const user = fetchUser();
 
   let alreadySaved = save?.filter((item) => item.postedBy._id === user.sub);
   //save = array of people who saved the post; check if the logged user already saved -> is he within the array.
+  alreadySaved = alreadySaved?.length > 0 ? alreadySaved : [];
 
   const savePin = (id) => {
     if (!alreadySaved || alreadySaved.length === 0) {
@@ -40,11 +42,11 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
     }
   };
 
-  // const deletePin = (id) => {
-  //   client
-  //   .delete(id)
-
-  // }
+  const deletePin = (id) => {
+    client.delete(id).then(() => {
+      window.location.reload();
+    });
+  };
 
   return (
     <div className="m-2">
@@ -72,7 +74,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   <MdDownloadForOffline />
                 </a>
               </div>
-              {alreadySaved ? (
+              {alreadySaved?.length !== 0 ? (
                 <button
                   type="button"
                   className="px-5 py-1 text-base font-bold text-black bg-yellow-500 outline-none opacity-75 hover:opacity-100 hover:shadow-md rounded-3xl"
@@ -111,7 +113,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   type="button"
                   onClick={(e) => {
                     e.stopPropagation();
-                    // deletePin(_id);
+                    deletePin(_id);
                   }}
                   className="p-2 text-base font-bold text-black bg-white outline-none opacity-75 hover:opacity-100 hover:shadow-md text-dark rounded-3xl"
                 >
