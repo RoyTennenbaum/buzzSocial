@@ -103,7 +103,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
                   <BsFillArrowUpRightCircleFill />
                   {destination.length > 20
                     ? destination.slice(8, 20)
-                    : destination(8)}
+                    : destination.slice(8)}
                 </a>
               )}
               {postedBy?._id === user.sub && (

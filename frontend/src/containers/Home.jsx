@@ -25,7 +25,7 @@ const Home = () => {
     client.fetch(query).then((data) => {
       setUser(data[0]);
     });
-  }, []);
+  }, [navigate, userInfo]);
 
   useEffect(() => {
     scrollRef.current.scrollTo(0, 0); //sets the screen to always view the top part of it on rerender or refresh.
