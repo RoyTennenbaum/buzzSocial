@@ -6,7 +6,7 @@ import sidebarLogo from "../assets/logo_sidebar_compressed.svg";
 import { categories } from "../utils/categories";
 
 const isNotActiveStyle =
-  "flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize";
+  "flex items-center px-5 gap-3 text-gray-900 hover:text-black transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
   "flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize";
 
@@ -41,7 +41,7 @@ const Sidebar = ({ user, closeToggle }) => {
           <h3 className="px-5 mt-2 text-base 2xl:text-xl">
             Discover Categories
           </h3>
-          {categories.slice(0, categories.length).map((category) => (
+          {categories.map((category) => (
             <NavLink
               to={`/category/${category.name}`}
               className={({ isActive }) =>
@@ -52,7 +52,7 @@ const Sidebar = ({ user, closeToggle }) => {
             >
               <img
                 src={category.image}
-                className="w-8 h-8 rounded-full shadow-sm"
+                className="w-8 h-8 rounded-full shadow-sm outline outline-1 outline-gray-900"
                 alt="category"
               />
               {category.name}
