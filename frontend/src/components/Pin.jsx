@@ -134,7 +134,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
           alt="profile"
           referrerPolicy="no-referrer"
         />
-        <p className="font-semibold text-yellow-300 capitalize">
+        <p className="font-semibold text-gray-900 capitalize">
           {postedBy?.username}
         </p>
       </Link>
