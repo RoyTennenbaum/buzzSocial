@@ -22,7 +22,7 @@ const PinDetail = ({ user }) => {
       client
         .patch(pinId)
         .setIfMissing({ comments: [] })
-        .insert("after", "comment[-1]", [
+        .insert("after", "comments[-1]", [
           {
             comment,
             _key: uuidv4(),
