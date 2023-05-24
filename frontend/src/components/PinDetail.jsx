@@ -7,7 +7,6 @@ import { client, urlFor } from "../client";
 import MasonryLayout from "./MasonryLayout";
 import { pinDetailQuery, pinDetailMorePinQuery } from "../utils/GROQ-data";
 import Spinner from "./Spinner";
-import { fetchUser } from "../utils/fetchUser";
 
 const PinDetail = ({ user }) => {
   const [pins, setPins] = useState(null);
