@@ -77,20 +77,23 @@ const PinDetail = ({ user }) => {
           />
         </div>
         <div className="flex-1 w-full p-5 xl:min-w-620">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 justify-evenly">
             <div className="flex items-center gap-2">
               <a
                 href={`${pinDetail.image?.asset?.url}?dl=`}
                 download
                 onClick={(e) => e.stopPropagation()}
-                className="flex items-center justify-center text-xl bg-white rounded-full outline-none opacity-75 w-9 h-9 text-dark hover:opacity-100 hover:shadow-md"
+                className="flex items-center justify-center gap-2 p-2 text-lg rounded-full outline-none opacity-75 bg-amber-400 text-dark hover:opacity-100 hover:shadow-md"
               >
                 <MdDownloadForOffline />
+                Download
               </a>
             </div>
-            <a href={pinDetail.destination} target="_blank" rel="noreferrer">
-              {pinDetail.destination}
-            </a>
+            <div className="w-40 p-2 truncate rounded-full opacity-75 bg-amber-400 hover:opacity-100 hover:shadow-md">
+              <a href={pinDetail.destination} target="_blank" rel="noreferrer">
+                {pinDetail.destination}
+              </a>
+            </div>
           </div>
           <div>
             <h1 className="mt-3 text-4xl font-bold break-words">
