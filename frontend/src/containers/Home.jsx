@@ -50,7 +50,7 @@ const Home = () => {
             <img
               src={user?.image}
               alt="profile"
-              className="rounded-full shadow-lg w-28"
+              className="w-20 rounded-full shadow-lg"
             />
           </Link>
         </div>
