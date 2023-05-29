@@ -179,6 +179,7 @@ const CreatePin = ({ user }) => {
                 </option>
                 {categories.map((category) => (
                   <option
+                    key={category.name}
                     className="text-base text-black capitalize bg-white border-0 outline-none"
                     value={category.name}
                   >
