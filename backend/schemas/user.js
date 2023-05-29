@@ -12,7 +12,7 @@ export default {
     {
       name: 'image',
       title: 'Image',
-      type: 'url',
+      type: 'string',
     },
   ],
 }
