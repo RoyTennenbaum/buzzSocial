@@ -67,11 +67,11 @@ const UserProfile = () => {
           <div className="flex flex-col items-center justify-center">
             <img
               src={randomImage}
-              className="object-cover w-full shadow-lg h-370 2xl:h-510"
+              className="object-cover w-full h-40 2xl:h-96"
               alt="profile-banner"
             />
             <img
-              className="object-cover w-20 h-20 -mt-10 rounded-full shadow-xl"
+              className="object-cover -mt-12 rounded-full w-28 h-28 outline outline-8 outline-zinc-50"
               src={user.image}
               alt="profile-user"
             />
@@ -83,7 +83,7 @@ const UserProfile = () => {
                 <button
                   type="button"
                   onClick={logout}
-                  className="p-2 bg-white rounded-full outline"
+                  className="p-3 bg-white border-4 border-gray-900 rounded-full outline-none"
                 >
                   <MdOutlineLogout />
                 </button>
