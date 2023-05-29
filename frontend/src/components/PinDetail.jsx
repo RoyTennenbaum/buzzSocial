@@ -101,20 +101,17 @@ const PinDetail = ({ user }) => {
             </h1>
             <p className="mt-3">{pinDetail.about}</p>
           </div>
-          <Link
-            to={`user-profile/${pinDetail.postedBy?._id}`}
-            className="flex items-center gap-2 mt-5 bg-white rounded-lg"
-          >
+          <div className="flex items-center gap-2 mt-5 bg-white rounded-lg">
             <img
               className="object-cover w-8 h-8 rounded-full"
-              src={pinDetail.postedBy?.image}
+              src={pinDetail.postedBy.image}
               alt="profile"
               referrerPolicy="no-referrer"
             />
             <p className="font-semibold capitalize">
-              {pinDetail.postedBy?.username}
+              {pinDetail.postedBy.username}
             </p>
-          </Link>
+          </div>
           <h2 className="mt-5 text-2xl">Comments</h2>
           <div className="overflow-y-auto max-h-370">
             {pinDetail?.comments?.map((comment, i) => (
@@ -125,7 +122,7 @@ const PinDetail = ({ user }) => {
                 <img
                   src={comment.postedBy.image}
                   alt="profile"
-                  className="w-10 h-10 rounded-full cursor-pointer"
+                  className="w-10 h-10 rounded-full"
                 />
                 <div className="flex flex-col">
                   <p className="font-bold">{comment.postedBy.username}</p>
