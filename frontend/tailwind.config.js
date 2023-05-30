@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  content: ["./src/**/*.{js,jsx}", "./public/index.html"],
   media: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -37,17 +37,6 @@ module.exports = {
         210: "210px",
         350: "350px",
         620: "620px",
-      },
-      textColor: {
-        lightGray: "#F1EFEE",
-        primary: "#FAFAFA",
-        secColor: "#efefef",
-        navColor: "#BEBEBE",
-      },
-      backgroundColor: {
-        mainColor: "#FBF8F9",
-        secondaryColor: "#F0F0F0",
-        blackOverlay: "rgba(0, 0 ,0 ,0.7)",
       },
       keyframes: {
         "slide-in": {
