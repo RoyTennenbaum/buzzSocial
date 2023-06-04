@@ -3,9 +3,9 @@ import Pin from "./Pin";
 
 const MasonryLayout = ({ pins }) => {
   const breakpointColumnsObj = {
-    default: 4,
-    3000: 6,
+    default: 6,
     2000: 5,
+    1600: 4,
     1200: 3,
     600: 2,
     400: 1,
