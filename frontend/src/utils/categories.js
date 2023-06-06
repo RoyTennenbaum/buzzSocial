@@ -1,10 +1,10 @@
-import techImg from "../assets/category-technology.jpg";
-import healthImg from "../assets/category-health.jpg";
-import businessImg from "../assets/category-business.jpg";
-import artImg from "../assets/category-art.jpg";
-import natureImg from "../assets/category-nature.jpg";
-import lifestyleImg from "../assets/category-lifestyle.jpg";
-import otherImg from "../assets/category-other.jpg";
+import techImg from "../assets/category-technology-re.webp";
+import healthImg from "../assets/category-health-re.webp";
+import businessImg from "../assets/category-business-re.webp";
+import artImg from "../assets/category-art-re.webp";
+import natureImg from "../assets/category-nature-re.webp";
+import lifestyleImg from "../assets/category-lifestyle-re.webp";
+import otherImg from "../assets/category-other-re.webp";
 
 export const categories = [
   {
