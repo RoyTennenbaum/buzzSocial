@@ -71,7 +71,7 @@ const PinDetail = ({ user }) => {
       >
         <div className="flex items-center justify-center flex-initial mx-3 overflow-hidden md:items-start">
           <img
-            src={pinDetail?.image && urlFor(pinDetail.image).fit("clip").url()}
+            src={pinDetail?.image && urlFor(pinDetail.image).url()}
             className="object-scale-down h-auto max-w-full mt-4 max-h-96 rounded-2xl"
             alt="user-post"
           />

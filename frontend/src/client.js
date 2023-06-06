@@ -12,4 +12,5 @@ export const client = createClient({
 
 const builder = ImageUrlBuilder(client);
 
-export const urlFor = (source) => builder.image(source).format("webp");
+export const urlFor = (source) =>
+  builder.image(source).fit("clip").format("webp");
