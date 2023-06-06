@@ -52,7 +52,7 @@ const Sidebar = ({ user, closeToggle }) => {
             >
               <img
                 src={category.image}
-                className="w-8 h-8 rounded-full shadow-sm outline outline-1 outline-gray-900"
+                className="w-8 h-8 border border-gray-900 rounded-full shadow-sm outline-none border-1"
                 alt="category"
               />
               {category.name}
