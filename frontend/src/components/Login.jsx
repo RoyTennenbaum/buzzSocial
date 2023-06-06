@@ -39,20 +39,23 @@ const Login = () => {
             autoPlay
             className="object-cover w-full h-full"
           />
+          <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-center">
+            <div className="p-5">
+              <img
+                src={logo}
+                alt="logo"
+                className="w-36 sm:w-48 md:w-56 lg:w-64 xl:w-72 2xl:w-80"
+              />
+            </div>
+            <GoogleLogin
+              size="large"
+              onSuccess={successResponseGoogle}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+            />
+          </div>
         </div>
-      </div>
-      <div className="absolute top-0 left-0 right-0 flex flex-col items-center justify-center bottom-60">
-        <img
-          src={logo}
-          alt="logo"
-          className="h-48 m-8 sm:h-56 md:h-64 lg:h-80 xl:h-96"
-        />
-        <GoogleLogin
-          onSuccess={successResponseGoogle}
-          onError={() => {
-            console.log("Login Failed");
-          }}
-        />
       </div>
     </>
   );
