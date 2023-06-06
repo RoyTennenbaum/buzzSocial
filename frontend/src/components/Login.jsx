@@ -1,6 +1,6 @@
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
-import homeIntro from "../assets/homeIntro.mp4";
+import homeIntro from "../assets/homeIntro.webm";
 import logo from "../assets/logo_buzzSocial_compressed.svg";
 import jwtDecode from "jwt-decode";
 
@@ -32,7 +32,7 @@ const Login = () => {
         <div className="relative w-full h-full">
           <video
             src={homeIntro}
-            type="video/mp4"
+            type="video/webm"
             loop
             controls={false}
             muted
