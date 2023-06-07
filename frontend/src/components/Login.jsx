@@ -8,6 +8,7 @@ import { client } from "../client";
 
 const Login = () => {
   const navigate = useNavigate();
+
   const successResponseGoogle = (credentialResponse) => {
     const decodedToken = jwtDecode(credentialResponse.credential);
 
@@ -48,7 +49,6 @@ const Login = () => {
               />
             </div>
             <GoogleLogin
-              size="large"
               onSuccess={successResponseGoogle}
               onError={() => {
                 console.log("Login Failed");
