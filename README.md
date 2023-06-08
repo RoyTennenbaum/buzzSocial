@@ -25,7 +25,7 @@ Buzz Social is built using the following technologies and frameworks:
 - **Search**: Search for a specific post by it's category/title/about section.
 - **User Profile**: View all posts created by you and all posts saved by you.
 
-## Installation
+## Local Installation
 To install and run Buzz Social locally, follow these steps:
 
 1. Clone the repository:
