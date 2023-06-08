@@ -4,8 +4,7 @@
 - [Intro](#intro)
 - [Tech Stack](#tech-stack)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Local Installation](#local-installation)
 
 ## Intro
 Welcome to Buzz Social, my first portfolio project! a social media website with many cool features.
@@ -30,3 +29,27 @@ Buzz Social is built using the following technologies and frameworks:
 To install and run Buzz Social locally, follow these steps:
 
 1. Clone the repository:
+```
+$ git clone https://github.com/RoyTennenbaum/buzzSocial.git
+```
+2. Navigate to the project directory (to the frontend folder):
+```
+$ cd buzzSocial
+$ cd frontend
+```
+3. Install the required dependencies:
+```
+$ npm i
+```
+4. Set up the environment variables:
+- Create a `.env` file in the frontend root directory.
+- Define the following variables:
+  ```
+  REACT_APP_GOOGLE_API_TOKEN = ^create on google cloud, follow instructions there^
+  REACT_APP_SANITY_PROJECT_ID = ^create an account on sanity and then create a project there, name it Buzz Social or however you like^
+  REACT_APP_SANITY_TOKEN = ^same as above^
+  ```
+5. Run the app:
+```
+$ npm start
+```
