@@ -1,5 +1,9 @@
 # Buzz Social
 
+
+https://github.com/RoyTennenbaum/buzzSocial/assets/121032859/6952cd38-4de0-4279-92b6-25c92c82d813
+
+
 ## Table of Contents
 - [Intro](#intro)
 - [Tech Stack](#tech-stack)
